@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence - Adetic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="trois"></div>
+            <div class="trois"></div>
+            <div class="trois"></div>
+        </div>
+        <img src="./static/logo-adetic.jpeg">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('agence') }}">Agence</a></li>
+                <li><a href="{{ url_for('projets') }}">Projets</a></li>
+                <li><a href="{{ url_for('carrieres') }}">Carrières</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}">Contactez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>À propos de notre Agence</h2>
+        <p>Adetic est spécialisée dans les solutions technologiques innovantes.</p>
+    </main>
+    <div class="grand-dg">
+    <div class="dg">
+        <h3>M. ADOUM DJIMET SABOUN</h3>
+        <p>Directeur Général de l'ADETIC</p>
+        <img src="./static/dgmot.jpeg">
+    </div>
+
+    <div class="dgmot">
+        <p style="font-weight: bold; font-size: 20px;">Le mot du Directeur général</p><br>
+        <p>Au nom de toute l’équipe de l’Agence de Développement des Technologies de l’Information et de la Communication (ADETIC) et en mon nom propre, j’ai l’immense plaisir et le privilège de vous souhaiter la bienvenue sur notre site officiel qui est un espace d’échanges, de partage d’informations et de communication sur l’ensemble des activités menées par notre Agence et plus.</p>
+        <p>Créée en 2014, par la Loi N°12/PR/2014 du 14 mars, l’ADETIC est chargée d’élaborer et de mettre en œuvre la stratégie nationale des TICS. À ce titre, elle s’occupe de l’ensemble des programmes et projets de développement en vue de moderniser notre pays par l’usage des TICS. De par nos activités, nous souhaitons aussi promouvoir l’entreprenariat, l’emploi des jeunes, la formation, l’innovation, la recherche de manière générale et dans le domaine des TIC en particulier.</p>
+        <p>Ainsi, en donnant à la jeunesse l’accès à une formation adéquate et la chance d’acquérir des compétences entrepreneuriales, l’ADETIC se positionne en vecteur de croissance et contribue inévitablement au développement socio-économique du Tchad.</p>
+        <p>De ce fait, toute l’équipe de l’ADETIC est résolument engagée à mettre en œuvre l’ensemble des actions et les orientations générales du Gouvernement en matière des TICS conformément à la vision des hautes autorités du pays qui vise à faire de notre pays un carrefour des TICS en Afrique.</p>
+        <p>le site de l’ADETIC  est aussi le votre, faites en un outil d’informations pour le développement des TICS.</p>
+        <p>Bonne navigation.</p>
+    </div>
+    </div>
+
+    <div class="reseaux">
+        <ion-icon name="mail-outline" class="mail"></ion-icon>
+        <p class="mail-text">info@localhost 66200071</p>
+        <ion-icon name="location-outline" class="location"></ion-icon>
+        <p class="location-text">Avenue du Colonel Hassan Mousal Kourda</p>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adetic - Tous droits réservés.</p>
+    </footer>
+
+
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script>
+            const li = document.querySelectorAll('nav'); // Sélectionne tous les éléments <li> dans le <nav>
+            const menu = document.querySelectorAll('.menu'); // Sélectionne tous les éléments avec la classe .menu
+
+        // Boucle sur chaque élément du menu
+          menu.forEach(element => {
+            element.addEventListener('click', () => {
+                // Boucle sur chaque <li> dans le <nav> et applique le toggle du style
+                li.forEach(item => {
+                    // Si le style display est 'none' ou vide (par défaut), alors on l'affiche, sinon on le cache
+                    if (item.style.display === 'block') {
+                        item.style.display = 'none'; // Cache l'élément
+                    } else {
+                        item.style.display = 'block'; // Affiche l'élément
+                    }
+                });
+            });
+        });
+
+        </script>
+</body>
+</html>

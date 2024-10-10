@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Adetic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="trois"></div>
+            <div class="trois"></div>
+            <div class="trois"></div>
+        </div>
+        <img src="./static/logo-adetic.jpeg">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('agence') }}">Agence</a></li>
+                <li><a href="{{ url_for('projets') }}">Projets</a></li>
+                <li><a href="{{ url_for('carrieres') }}">Carrières</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}">Contactez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+       <div class="slide">
+         <h2>Bienvenue sur le site d'Adetic</h2>
+          <p>Nous sommes une agence dédiée à la technologie et à l'innovation.</p>
+       </div>
+       <div class="slide" style="display: none;">
+        <h2>Adetic</h2>
+        <p>Agence de développement de technologies de l'information et de la communication au Tchad.</p>
+      </div>
+      <div>
+          <button class="voir-plus" id="voir-agence">Voir L'équipe</button>
+      </div>
+    </main>
+
+    <div class="actualités">
+        <h3>Actualités</h3>
+        <div class="mini-blogs">
+
+            <div class="mini">
+             <img src="./static/chine/chine1.jpeg">
+             <p style="font-weight: bold; font-size: 20px;color: green;">ADETIC en visite au siège de Huawei à Shen Zen</p>
+             <p>Sur invitation du groupe Huawei , le Ministre des communications, de l’économie numérique et de la digitalisation de l’administration Dr Boukar Michel accompagné...</p>
+             <button class="lire">Lire plus</button>
+            </div>
+
+            <div class="mini">
+            <img src="./static/terrain/visite1.jpeg">
+             <p style="font-weight: bold; font-size: 20px;color: green;">Une Visite de Terrain pour Constater l'Arrivée de 12 Pylones à Goudji</p>
+             <p>Informés de l’arrivée des 12 pylônes en provenance de l’entrepôt de la douane de Nguéli, le Secrétaire général du Ministère, Hissein Brahim Directeur...</p>
+             <button class="lire">Lire plus</button>
+            </div>
+
+            <div class="mini">
+            <img src="./static/installation/dg.jpeg">
+             <p style="font-weight: bold; font-size: 20px;color: green;">Installation du nouveau DG de L'ADETIC</p>
+             <p>Le nouveau DG de l’ADETIC, Adoum Djimet Saboun, est installé.
+            La cérémonie de passation de service présidée par l’Inspectrice générale du Ministère,...</p>
+             <button class="lire">Lire plus</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="grand-dg">
+    <div class="dg">
+        <h3>M. ADOUM DJIMET SABOUN</h3>
+        <p>Directeur Général de l'ADETIC</p>
+        <img src="./static/dgmot.jpeg">
+    </div>
+
+    <div class="dgmot">
+        <p style="font-weight: bold; font-size: 20px;">Le mot du Directeur général</p><br>
+        <p>Au nom de toute l’équipe de l’Agence de Développement des Technologies de l’Information et de la Communication (ADETIC) et en mon nom propre, j’ai l’immense plaisir et le privilège de vous souhaiter <br>la bienvenue sur notre site officiel qui est un espace d’échanges, de partage d’informations et de communication sur l’ensemble des activités menées par notre Agence et plus.</p>
+        <p>Créée en 2014, par la Loi N°12/PR/2014 du 14 mars, l’ADETIC est chargée d’élaborer et de mettre en œuvre la stratégie nationale des TICS.<br> À ce titre, elle s’occupe de l’ensemble des programmes et projets de développement en vue de moderniser <br>notre pays par l’usage des TICS. De par nos activités, nous souhaitons aussi promouvoir l’entreprenariat, l’emploi des jeunes, la formation, l’innovation, la recherche de manière générale et dans le domaine des<br> TIC en particulier.</p>
+        <p>Ainsi, en donnant à la jeunesse l’accès à une formation adéquate et la chance d’acquérir des compétences entrepreneuriales, l’ADETIC se positionne en vecteur de croissance et contribue inévitablement au développement socio-économique du Tchad.</p>
+        <button class="lire-dg">Lire plus</button>
+    </div>
+    </div>
+        <div class="partenaires">
+        <p style="font-size: 20px; font-weight: bold; color: orangered;">Nos partenaires</p>
+        <div class="partenaire">
+            <img src="./static/partenaire/airtel.jpeg">
+            <img src="./static/partenaire/tigo2.jpeg">
+            <img src="./static/partenaire/arcep.jpeg">
+            <img src="./static/partenaire/enastic.jpeg">
+        </div>
+    </div>
+
+
+    <div class="reseaux">
+        <ion-icon name="mail-outline" class="mail"></ion-icon>
+        <p class="mail-text">info@localhost 66200071</p>
+        <ion-icon name="location-outline" class="location"></ion-icon>
+        <p class="location-text">Avenue du Colonel Hassan Mousal Kourda</p>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+    </div>
+
+
+
+    <footer>
+        <p>&copy; 2024 Adetic - Tous droits réservés.</p>
+    </footer>
+
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script>
+        const li = document.querySelectorAll('nav'); // Sélectionne tous les éléments <li> dans le <nav>
+        const menu = document.querySelectorAll('.menu'); // Sélectionne tous les éléments avec la classe .menu
+
+        // Boucle sur chaque élément du menu
+        menu.forEach(element => {
+            element.addEventListener('click', () => {
+                // Boucle sur chaque <li> dans le <nav> et applique le toggle du style
+                li.forEach(item => {
+                    // Si le style display est 'none' ou vide (par défaut), alors on l'affiche, sinon on le cache
+                    if (item.style.display === 'block') {
+                        item.style.display = 'none'; // Cache l'élément
+                    } else {
+                        item.style.display = 'block'; // Affiche l'élément
+                    }
+                });
+            });
+        });
+
+    const voir_agence = document.querySelectorAll('.voir-plus');
+    voir_agence.forEach(element => {element.addEventListener('click', ()=>{
+        window.location.href = "/voir-agence"
+    });
+     });
+
+    const lire_dg = document.querySelectorAll('.lire-dg');
+
+    lire_dg.forEach(element => {
+    element.addEventListener('click', () => {
+        window.location.href = '/agence';
+       });
+    });
+
+    const lire_plus = document.querySelectorAll('.lire');
+
+    lire_plus.forEach(element => {
+    element.addEventListener('click', () => {
+        window.location.href = '/blog';
+       });
+    });
+
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides[currentSlide].style.display = 'none';
+        slides[currentSlide].style.opacity = 0;
+        currentSlide = index;
+        slides[currentSlide].style.display = 'block';
+        setTimeout(() => {
+            slides[currentSlide].style.opacity = 1;
+        }, 50); // pour assurer que l'animation d'opacité fonctionne
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+
+    // Afficher le premier slide
+    showSlide(currentSlide);
+    // Changer de slide toutes les 5 secondes
+    setInterval(nextSlide, 5000);
+</script>
+
+</body>
+</html>

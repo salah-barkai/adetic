@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conctat - Adetic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="trois"></div>
+            <div class="trois"></div>
+            <div class="trois"></div>
+        </div>
+        <img src="./static/logo-adetic.jpeg">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('agence') }}">Agence</a></li>
+                <li><a href="{{ url_for('projets') }}">Projets</a></li>
+                <li><a href="{{ url_for('carrieres') }}">Carrières</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}">Contactez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <h2>Contactez-nous</h2>
+        <p>Agence de technologies de l'information et de la communication .</p>
+    </main>
+    <div class="grand-contact">
+    <div class="contact-rs">
+        <p>Les équipes de l’ADETIC sont à votre écoute pour toute demande de renseignement.</p>
+        <div class="rs1">
+            <ion-icon name="mail-outline"></ion-icon>
+            <p>info@localhost</p>
+        </div>
+        <div class="rs2">
+            <ion-icon name="call-outline"></ion-icon>
+            <p>66200071</p>
+        </div>
+        <div class="rs3">
+            <ion-icon name="location-outline"></ion-icon>
+            <p>Avenue du Colonel Hassan Mousal Kourda</p>
+        </div>
+    </div>
+    <div class="formu">
+        <h3 style="color: green; justify-content: center; text-align: center;">Contactez-Nous</h3>
+        <p>NOUS VOUS INVITONS À RENSEIGNER LE FORMULAIRE CI-DESSOUS POUR NOUS PERMETTRE DE VOUS APPORTER LA MEILLEURE RÉPONSE.</p>
+        <form action="/envoyer_contact" method="POST" class="contact-form">
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+            <input type="tel" id="telephone" name="telephone" placeholder="Votre numéro de téléphone" required>
+
+            <input type="text" id="sujet" name="sujet" placeholder="Sujet du message" required>
+            
+            <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea><br>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="reseaux">
+        <ion-icon name="mail-outline" class="mail"></ion-icon>
+        <p class="mail-text">info@localhost 66200071</p>
+        <ion-icon name="location-outline" class="location"></ion-icon>
+        <p class="location-text">Avenue du Colonel Hassan Mousal Kourda</p>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adetic - Tous droits réservés.</p>
+    </footer>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script>
+            const li = document.querySelectorAll('nav'); // Sélectionne tous les éléments <li> dans le <nav>
+            const menu = document.querySelectorAll('.menu'); // Sélectionne tous les éléments avec la classe .menu
+
+        // Boucle sur chaque élément du menu
+          menu.forEach(element => {
+            element.addEventListener('click', () => {
+                // Boucle sur chaque <li> dans le <nav> et applique le toggle du style
+                li.forEach(item => {
+                    // Si le style display est 'none' ou vide (par défaut), alors on l'affiche, sinon on le cache
+                    if (item.style.display === 'block') {
+                        item.style.display = 'none'; // Cache l'élément
+                    } else {
+                        item.style.display = 'block'; // Affiche l'élément
+                    }
+                });
+            });
+        });
+
+        </script>
+
+</body>
+</html>
