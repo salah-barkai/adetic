@@ -3,13 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Londrina+Sketch&display=swap');
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Cinzel", serif;
     margin: 0;
     padding: 0;
     background-color: white;
     user-select: none;
-
+    height: 100%;
 }
 
 header {
@@ -126,7 +130,7 @@ main p:hover {
     justify-content: center;
     text-align: center;
     align-items: center;
-    margin: 10px;
+    margin: 5px;
 }
 
 .mini-blogs {
@@ -274,6 +278,10 @@ color: white;
     width: auto;
 }
 
+.reseaux a {
+    text-decoration: none;
+}
+
 .reseaux ion-icon {
     padding: 5px;
     font-size: 20px;
@@ -293,7 +301,6 @@ color: white;
 
 .grand-dg {
     display: flex;
-    margin: 10px;
     padding: 20px;
 }
 
@@ -421,41 +428,58 @@ color: white;
     color: white;
 }
 
-.blogs {
-    margin: 10px;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-}
-
-.blogs1 {
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-}
-
-.blogs1 p{
-    justify-content: center;
-    padding: 2px;
-    margin: 2px;
-}
-
-.img-blogs {
+.card-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
+    height: 100%;
+    width: 100%;
 }
 
-.img-blogs img {
-    width: 100;
-    display: flex;
-    height: 170px;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    overflow: hidden;
+    text-align: center;
+    margin: 20px;
 }
 
+.card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+.lire-blog {
+    padding: 10px;
+    margin:10px;
+    border-radius: 10px;
+    background-color: skyblue;
+    border-style: none;
+    width: 200px;
+    cursor: pointer;
+}
+.lire-blog:hover{
+    background-color: green;
+    color: white
+}
 footer {
     text-align: center;
     padding: 10px;
@@ -467,7 +491,7 @@ footer {
 }
 
 .partenaires {
-    margin: 10px;
+    margin: 4px;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -477,7 +501,7 @@ footer {
 
 .partenaire{
     display: flex;
-    margin: 10px;
+    margin: 5px;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -485,10 +509,10 @@ footer {
 }
 
 .partenaire img {
-    margin: 20px;
+    margin: 15px;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     cursor: pointer;
 }
 
@@ -567,6 +591,67 @@ footer {
     margin:20px;
 }
 
+.corps-bloggs {
+    display: flex;
+    padding: 10px;
+    margin: 30px;
+
+}
+
+.blog-specifique {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    overflow: hidden;
+    text-align: center;
+    margin: 20px;
+}
+
+.blog-specifique img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.commentaire form {
+  padding: 10px;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentaire form input {
+    padding: 10px;
+    width: 350px;
+    border-style:1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.commentaire form textarea {
+    padding: 10px;
+    width: 350px;
+    height: 200px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.commentaire form button {
+    padding: 10px;
+    margin:10px;
+    border-radius: 10px;
+    background-color: skyblue;
+    border-style: none;
+    width: 200px;
+    cursor: pointer;
+}
+
 
 
 /* Media Queries */
@@ -577,12 +662,13 @@ footer {
     header img{
         display: none;
     }
+
+    header {
+        padding: 10px 20px;
+    }
     nav {
         display: none;
-        padding-left: 150px;
-
         justify-content: center;
-        text-align: center;
         align-items: center;
     }
     .menu {
@@ -654,6 +740,11 @@ footer {
 
     .parteanire {
         display: inline-block;
+        padding: 5px;
+    }
+
+    .partenaire img {
+        width: 50px;
     }
 
     .drs4 {
@@ -667,6 +758,10 @@ footer {
     }
 
     .framefb {
+        display: inline-block;
+        padding: 10px;
+    }
+    .corps-bloggs {
         display: inline-block;
         padding: 10px;
     }
@@ -715,24 +810,20 @@ footer {
         display: inline-block;
     }
 
-        .grand-contact {
+    .grand-contact {
         display: inline-block;
     }
 
     .formu {
         padding: 10px;
-        width: 400px;
     }
     .formu form input {
         display: flex;
         padding: 10px;
-        width: 300px;
-        margin: 15px;
     }
 
     .formu form textarea {
         padding: 10px;
-        width: 300px;
         margin: 15px;
     }
 
@@ -762,6 +853,10 @@ footer {
         display: inline-block;
         padding: 10px;
     }
+    .partenaire img {
+        width: 50px;
+    }
+
 
 
     footer {

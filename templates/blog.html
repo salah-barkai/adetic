@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Adetic</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
 </head>
 <body>
     <header>
@@ -30,73 +31,29 @@
         <h2>Nos Articles</h2>
         <p>Suivez nos réflexions sur les tendances technologiques.</p>
     </main>
+    <p style="font-size: 20px; font-weight: bold; color: green;text-align: center;">Nos articles</p>
+    <div class="grandblog">
+            {% for blog in blogs %}
+            <div class="card-container">
+                <div class="card">
+                    <img src="{{ url_for('static', filename=blog.image) }}" alt="Image du blog" class="card-image">
+                    <div class="card-content">
+                        <h2 class="card-title">{{ blog.title }}</h2>
+                        <p class="card-text">{{ blog.content[:150] }}...</p>
+                        <a href="{{ url_for('show_blog', blog_id=blog.id) }}">Lire plus</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    
     <div class="grandframe">
         <p style="font-size: 20px; font-weight: bold; color: green;">Nos articles sur facebook</p>
     <div class="framefb">
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAdetic.td%2Fposts%2Fpfbid0fdEKfEAKW2xHeLNcgz4em42FjT5Sr1mrJXDrwegJsuJekpYeee5Go24BrRR4qifCl&show_text=true&width=500" width="300" height="429" style="border:none;overflow:hidden; margin: 10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAdetic.td%2Fposts%2Fpfbid0SERHCtNVr7DjBKgYEVC1UDc5K2eKKE6jHnAkKRbtMkgMLPRE5BTf3Y5WivKm5Sujl&show_text=true&width=500" width="300" height="429" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FAdetic.td%2Fposts%2Fpfbid0B1TLMr4SJQ7u6BcC35dkP5utdhLQfRBxmbabd7aCNQekS12qhiAj7XXDVqPvkQfLl&show_text=true&width=500" width="300" height="429" style="border:none;overflow:hidden; margin: 10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-    </div>
-    </div>
-    <div class="blogs">
-        <div class="blogs1">
-            <p style="font-size: 20px; font-weight: bold; color: green;">Visite de travail entre l'ADETIC et la CNAS</p><br>
-            <p>Ce vendredi 29 mars 2024, le Directeur général de l’ADETIC, Adoum Djimet Saboun entouré de ses proches, a reçu une forte délégation de la Caisse Nationale d’Assurance Santé (CNAS). Laquelle délégation est conduite par le Directeur général, Singnyabé Barnabas et son adjoint Dr. Abdelsalam Hammad Djamouss.</p>
-            <p>Au cœur des échanges, la délégation est venue solliciter l’accompagnement technique de l’ADETIC dans la mise œuvre effective de la couverture santé universelle au Tchad.</p>
-            <p>Ainsi, dans les propos du Directeur général de la CNAS, l’on apprend qu’il y aura trois régimes à savoir l’Assurance santé des salariés, l’Assurance santé des indépendants et l’Assurance maladie des personnes démunies. C’est apporter un soin de qualité et équitable à toute la population sans aucune forme de discrimination, telle est la raison de la création de la Caisse Nationale d’Assurance Santé.</p>
-            <p>La Direction générale et les Directions techniques de l’ADETIC ont rassuré la délégation de la CNAS de leur disponibilité, surtout à contribuer techniquement à la réussite du fonctionnement de la Caisse.</p>
-            <p>La délégation de la CNAS est repartie satisfaite. Les deux Directeurs généraux se sont promis d’autres rencontres pour peaufiner cette collaboration entre l’ADETIC et la CNAS.</p>
-            <div class="img-blogs">
-             <img src="./static/visite-cnas/n-dg.jpeg">
-             <img src="./static/visite-cnas/d-adetic2.jpeg">
-             <img src="./static/visite-cnas/d-adetic.jpeg">
-             <img src="./static/visite-cnas/d-adetic3.jpeg">
-           </div>
-        </div>
-        <div class="blog1">
-        <h3 style="font-size: 20px; font-weight: bold; color: green;">L'ADETIC en visite au siège de Huawei à Shen Zen</h3>
-        <div class="corps-blog1">
-            <img src="./static/chine/chine1.jpeg">
-            <img src="./static/chine/dgchine.jpeg">
-            <img src="./static/chine/dgchine2.jpeg">
-            <img src="./static/chine/dgchine3.jpeg">
-            <div class="text-blog">
-                <p>Sur invitation du groupe Huawei , le Ministre des communications, de l’économie numérique et de la digitalisation de l’administration Dr Boukar Michel accompagné de ses proches collaborateurs séjourne depuis la date du 31 juillet dans la ville de shen Zen dans le cadre de la coopération numérique Sino-africaine .</p>
-                <p>La délégation tchadienne a profité de son séjour pour visiter le siège de la géante société Huawei à Shen zen. Cette rencontre a consisté une opportunité prestigieuse pour la délégation tchadienne d’exposer des projets coopératifs auxquels les deux parties travailleront pour renforcer leurs capacités dans le domaine du numérique et aider le Tchad à implanter le modèle prometteur des Tic en faveur de l’accélération digitale et d’une économie prospère.</p>
-                <p>Suite à cette rencontre un mémorandum M O U d’assistance technique pour la mise en exploitation du data center national ainsi que son backup, la formation et le transfert des compétences aux techniciens a été signé sous la supervision du ministre Dr Boukar Michel. La partie tchadienne était représenté par le DG de l’ADETIC Adoum djimet saboun et la partie Huawei par son vice-président LI JUNFENG.</p>
-            </div>
-        </div>
-    </div>
-
-        <div class="blog1">
-        <h3 style="font-size: 20px; font-weight: bold; color: green;">Une Visite de Terrain pour Constater l'Arrivée de 12 Pylones à Goudji</h3>
-        <div class="corps-blog1">
-            <img src="./static/terrain/visite1.jpeg">
-            <img src="./static/terrain/visite2.jpeg">
-            <img src="./static/terrain/visite3.jpeg">
-            <div class="text-blog">
-                <p>Informés de l’arrivée des 12 pylônes en provenance de l’entrepôt de la douane de Nguéli, le Secrétaire général du Ministère, Hissein Brahim Directeur général, Adoum Djimet Saboun et le Directeur de la Communication, Hissein Issa Rozi de l’Adetic se sont rendus à Goudji pour constater de visu l’arrivée desdits matériels.</p>
-                <p>Il s’agit de 12 des 17 pylônes chargés dans cinq gros porteurs. Ces équipements de télécommunication sont commandés dans le cadre du projet du service universel. Une fois installés, ces pylônes vont desservis les zones du nord du pays non couvert par les opérateurs.</p>
-                <p>Après la visite, le Directeur général de l’Adetic, Adoum Djimet Saboun est visiblement satisfait. Car dit-il se sent soulagé avec l’arrivée de ces pylônes dans la cour de l’entrepôt de Goudji.</p>
-                <p>Pour ce faire, les techniciens en charge de la réalisation du projet ont été instruits par le Directeur général à l’effet à se mettre résolument au travail pour faire aboutir le projet dans un délai très raisonnable.</p>
-                <p>Le Secrétaire général du Ministère, Hissein Brahim Abdelkérime, a abondé dans le même sens que le Directeur général en qui concerne l’accélération des travaux.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="installation">
-        <div class="inst-titre">
-            <h4 style="font-size: 20px; font-weight: bold; color: green;">Installation du nouveau DG de L'ADETIC</h4>
-        </div>
-        <div class="inst-img">
-            <img src="./static/installation/dg.jpeg">
-            <img src="./static/installation/installation-dg.jpeg" class="dg1">
-            <img src="./static/installation/dg2.jpeg" class="dg2">
-        </div>
-        <div class="blog-installation">
-            <p>Le nouveau DG de l’ADETIC, Adoum Djimet Saboun, est installé.
-            La cérémonie de passation de service présidée par l’Inspectrice générale du Ministère, a eu lieu ce mardi 12 mars 2024 dans les locaux de l’Agence de Développent des Technologies de l’Information et de la Communication (ADETIC), entre le Directeur général sortant, Ali Sidick Adam et Adoum Djimet Saboun. Nommé il y a juste une semaine, c’est-à-dire le 6 mars 2024 aux termes du décret N°0196/PT/PMT/MTEN/2024</p>
-        </div>
     </div>
     </div>
 
@@ -136,5 +93,8 @@
         });
 
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </body>
 </html>

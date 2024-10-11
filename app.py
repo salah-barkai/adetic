@@ -1,8 +1,14 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash,g
 from flask_mail import Mail, Message
+import sqlite3
+
+
 
 app = Flask(__name__)
+
+DATABASE = 'blog.sqlite'  # Chemin vers la base de données
+
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or 'une_cle_secrete_aleatoire'
 
@@ -40,10 +46,60 @@ def projets():
 def carrieres():
     return render_template('carrieres.html')
 
+# Fonction pour se connecter à la base de données
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+# Fermer la connexion à la base de données
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
+
+# Routes existantes...
+
 # Route pour la page Blog
 @app.route('/blog')
 def blog():
-    return render_template('blog.html')
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute('SELECT id, title, content, image, author FROM blogs')
+    blogs = cursor.fetchall()
+    # Transformer les données en une liste de dictionnaires
+    blog_list = []
+    for blog in blogs:
+        blog_dict = {
+            'id': blog[0],
+            'title': blog[1],
+            'content': blog[2],
+            'image': blog[3],
+            'author': blog[4]
+        }
+        blog_list.append(blog_dict)
+    return render_template('blog.html', blogs=blog_list)
+
+# Route pour afficher un blog spécifique
+@app.route('/blog/<int:blog_id>')
+def show_blog(blog_id):
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute('SELECT id, title, content, image, author FROM blogs WHERE id = ?', (blog_id,))
+    blog = cursor.fetchone()
+    if blog is None:
+        return "Blog non trouvé", 404
+    blog_dict = {
+        'id': blog[0],
+        'title': blog[1],
+        'content': blog[2],
+        'image': blog[3],
+        'author': blog[4]
+    }
+    return render_template('voir-blog.html', blog=blog_dict)
+
 
 # Route pour la page Contactez-nous
 @app.route('/contact')

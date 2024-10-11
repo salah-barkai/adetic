@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ blog.title }} - Adetic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <div class="trois"></div>
+            <div class="trois"></div>
+            <div class="trois"></div>
+        </div>
+        <!-- Correction de l'affichage du logo -->
+        <img src="{{ url_for('static', filename='logo-adetic.jpeg') }}" alt="Logo Adetic">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Accueil</a></li>
+                <li><a href="{{ url_for('agence') }}">Agence</a></li>
+                <li><a href="{{ url_for('projets') }}">Projets</a></li>
+                <li><a href="{{ url_for('carrieres') }}">Carrières</a></li>
+                <li><a href="{{ url_for('blog') }}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}">Contactez-nous</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>{{blog.title}}</h2>
+        <p>Agence de technologies de l'information et de la communication.</p>
+    </main>
+  
+    <!-- Centrer le div blog-specifique -->
+    <div class="corps-bloggs">
+    <div class="blog-specifique">
+        <h2>{{ blog.title }}</h2>
+        <img src="{{ url_for('static', filename=blog.image) }}" alt="Image du blog" class="blog-image">
+        <p>{{ blog.content }}</p>
+        <p>Auteur: {{ blog.author }}</p>
+    </div>
+    <div class="commentaire">
+        <p style="font-size: 20px; font-weight: bold;">Laissez un commentaire</p>
+        <form>
+            <input type="text" name="" placeholder="Nom">
+            <input type="text" name="" placeholder="Prenom">
+            <textarea placeholder="Laissez votre commentaire"></textarea>
+            <button type="submit">Envoyez le formulaire</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="reseaux">
+        <ion-icon name="mail-outline" class="mail"></ion-icon>
+        <p class="mail-text">info@localhost 66200071</p>
+        <ion-icon name="location-outline" class="location"></ion-icon>
+        <p class="location-text">Avenue du Colonel Hassan Mousal Kourda</p>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-twitter"></ion-icon>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Adetic - Tous droits réservés.</p>
+    </footer>
+
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <script>
+        const li = document.querySelectorAll('nav');
+        const menu = document.querySelectorAll('.menu');
+
+        menu.forEach(element => {
+            element.addEventListener('click', () => {
+                li.forEach(item => {
+                    if (item.style.display === 'block') {
+                        item.style.display = 'none';
+                    } else {
+                        item.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
